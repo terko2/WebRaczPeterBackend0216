@@ -129,7 +129,7 @@ app.get('/szalloda', (req, res) => {
     
     connection.end()
   })
-  //------------------------Elérhetőség lekérdezése
+  //------------------------Elérhetőség lekérdezése--
   app.get('/elerhetoseg', (req, res) => {
       
     Kapcsolat()  
