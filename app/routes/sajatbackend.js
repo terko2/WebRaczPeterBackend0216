@@ -178,8 +178,28 @@ app.get('/szalloda', (req, res) => {
     connection.end()
   })
     
-  
-  
+  //-------------Feltöltés-------------------
+  app.update('/feltoltes', (req, res) => {
+    Kapcsolat()
+    connection.query('insert into feltoltes values (null, '+req.body.bevitel1+')', (err, rows, fields) => {
+      if (err) throw err
+      res.send("Sikerült a feltöltés!")
+    })
+   
+    connection.end()
+  })
+//tÖR
+  app.delete('/autoktorles', (req, res) => {
+    Kapcsolat()
+    connection.query('delete from auto where auto_id='+req.body.bevitel1, (err, rows, fields) => {
+      if (err) throw err
+      res.send("Sikerült a törlés!")
+    })
+   
+    connection.end()
+  })
+
+  //-----Auto adatok
   app.get('/auto_adatok', (req, res) => {
       
     Kapcsolat()  
