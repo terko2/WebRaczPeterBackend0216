@@ -155,8 +155,8 @@ app.get('/szalloda', (req, res) => {
   })
   //-----Keres
   app.post('/keres', (req, res) => {
-    kapcsolat()
-  let parancs="select * from nyaralas where film.cim like '%"+req.body.bevitel1+"%'"
+    Kapcsolat()
+  let parancs="select * from auto where auto_nev like '%"+req.body.bevitel1+"%'"
     connection.query(parancs, (err, rows, fields) => {
       if (err) console.log(err)
     else
@@ -180,7 +180,7 @@ app.get('/szalloda', (req, res) => {
   })
     
   //-------------Feltöltés-------------------
-  app.update('/feltoltes', (req, res) => {
+  app.post('/feltoltes', (req, res) => {
     Kapcsolat()
     connection.query('insert into feltoltes values (null, '+req.body.bevitel1+')', (err, rows, fields) => {
       if (err) throw err
